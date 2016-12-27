@@ -2,8 +2,8 @@
 from flask import Flask, render_template, Response
 
 # emulate camera
-from camera import Camera
-# from camera_pi import Camera
+# from camera import Camera
+from camera_pi import Camera
 
 app = Flask(__name__)
 
@@ -25,4 +25,4 @@ def video_feed():
 	return Response(gen(Camera()),
 			mimetype='multipart/x-mixed-replace; boundary=frame')
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', debug=True, threaded=True)
+	app.run(host='0.0.0.0', debug=True, threaded=True, port=5001)
